@@ -25,9 +25,9 @@ isCharge: "" || false
 async function starts() {
 	    client.autoReconnect = ReconnectMode.onConnectionLost
 	    client.version = [2, 2143, 3]
-	    client.browserDescription = ["EXTREAM","Ubuntu","18.04"]
+	    client.browserDescription = ["AlyaaXzy","Ubuntu","18.04"]
 	    client.logger.level = 'warn'
-	    console.log(color(`]─`,`magenta`),`「`,  color(`EXTREAM`,`red`), `」`,  color(`─[`,`magenta`))
+	    console.log(color(`]─`,`magenta`),`「`,  color(`AlyaaXzy`,`red`), `」`,  color(`─[`,`magenta`))
 	    client.on('qr', () => {
 	    console.log(color('[','white'), color('!','red'), color(']','white'), color(' Scan Bwang'))
 	    })
