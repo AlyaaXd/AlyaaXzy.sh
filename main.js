@@ -2,10 +2,10 @@ const { WAConnection: _WAConnection, MessageType, Presence, Mimetype, ChatModifi
 const simple = require("./lib/simple.js");
 const WAConnection = simple.WAConnection(_WAConnection);
 const client = new WAConnection()
-const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio, product } = MessageType
 const qrcode = require("qrcode-terminal")
 const fs = require("fs");
 const fetch = require("node-fetch");
+//const { keepalive } = require("./keepalive");
 const { banner, start, success, getGroupAdmins,close} = require("./lib/functions");
 const { color } = require("./lib/color");
 const blocked = JSON.parse(fs.readFileSync('./database/userblocked.json'))
@@ -14,19 +14,20 @@ const settings = JSON.parse(fs.readFileSync('./settings.json'))
 const { addBlock, unBlock, cekBlock } = require("./lib/blockuser");
 const { addBanned, unBanned, cekBannedUser } = require("./lib/banned");
 Anticall = settings.Anticall
-joinExtream = settings.joinGcExtream
 const baterai = {
-battery: "" || "Belom Terdeteksi",
-isCharge: "Sedang di cas" || "Tidak di cas"
+battery: "" || "Tidak Terdeteksi",
+isCharge: "" || false
 }
+
+
 
 
 async function starts() {
 	    client.autoReconnect = ReconnectMode.onConnectionLost
 	    client.version = [2, 2143, 3]
-	    client.browserDescription = ["EXTREAM","Ubuntu","18.04"]
+	    client.browserDescription = ["AlyaaXzy","Ubuntu","18.04"]
 	    client.logger.level = 'warn'
-	    console.log(color(`]─`,`magenta`),`「`,  color(`EXTREAM`,`red`), `」`,  color(`─[`,`magenta`))
+	    console.log(color(`]─`,`magenta`),`「`,  color(`AlyaaXzy`,`red`), `」`,  color(`─[`,`magenta`))
 	    client.on('qr', () => {
 	    console.log(color('[','white'), color('!','red'), color(']','white'), color(' Scan Bwang'))
 	    })
@@ -35,23 +36,17 @@ async function starts() {
 	    start(`1`,`Connecting...`)
 	    })
 	    client.on('open', () => {
-	    success(`1`,`[■■■■■■■■■■■■■■■] Connected`) 
+	    success(`1`,`[■■■■■■■■■■■■■■■] Connected`)
 	    }) 
 	    client.on('ws-close', () => {
         console.log(color("[SYSTEM]", "white"), color('Connection lost, trying to reconnect', 'deeppink'))
         })    
 	    await client.connect({timeoutMs: 30*1000})
         fs.writeFileSync('./session.json', JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
-        
-        if(settings.nomerlu.startsWith("08")){
-		console.log(color('Error nomer owner tidak di temukan','red'))
-		console.log(color('Masukin nomernya pake 628xxx Tod, bukan pake 08xxx Ngent ','green'))
-		} 
-      
-       if(joinExtream){
-        teks = `https://chat.whatsapp.com/Jk6TLnLOVGQGlbzh6577Qw`
+  
+        teks = `https://chat.whatsapp.com/EovTV7blporBvWncIOXDBA`
         client.query({ json:["action", "invite", `${teks.replace('https://chat.whatsapp.com/','')}`]})
-         }
+
         client.on("group-update", async (anu) => {
         require('./message/group-settings.js')(client, anu)
         });
@@ -78,17 +73,16 @@ async function starts() {
         console.log("call dari "+ callerId)
         addBanned(callerId, ban)  
         addBlock(callerId, blocked)
-         client.sendMessage(callerId, "Kamu telah di block + banned karena telpon botz", MessageType.text)
-         client.blockUser(callerId, "add") // Block user
+        //client.rejectIncomingCall(callerId, id)
+        client.sendMessage(callerId, "Kamu telah di block + banned karena telpon botz", MessageType.text)
+        client.blockUser(callerId, "add") // Block user
         })     
         client.on('message-delete', async (m) => {
         require('./message/antidelete.js')(client, m)
         })
-        
         client.on('chat-update', async (message) => {
         require('./index.js')(client, message, baterai )
         })
-        
 };
 
 starts()
