@@ -1,7 +1,7 @@
 /*
 
 No enc bisa beli di gua 30k
-wa.me/6285156137901
+wa.me/6289505165400
 
 */
 
