@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://telegra.ph/file/4637101da58e21976363b.jpg" alt="AlyaaXzy X BOTCAH�" width="300" />
+<img src="https://telegra.ph/file/4637101da58e21976363b.jpg" alt="AlyaaXzy X BOTCAHï¿½" width="300" />
 
 # Jangan lupa kasih stars & follow :)
 
@@ -53,12 +53,12 @@
 
 # FITUR BOT
 
-# THANKS TO 🎆
-• [`Baileys`](https://github.com/adiwajshing/Baileys)
+# THANKS TO ðŸŽ†
+â€¢ [`Baileys`](https://github.com/adiwajshing/Baileys)
 
-• [`AlyaXzy`](https://wa.me/6289505165400)
+â€¢ [`AlyaXzy`](https://wa.me/6289505165400)
 
-• [`BOTCAH™`](https://wa.me/6282221792667)
+â€¢ [`BOTCAHâ„¢`](https://wa.me/6282221792667)
 
 # Hargai Kami Dengan Menambahkan Kredit ( Wm ) 
 
